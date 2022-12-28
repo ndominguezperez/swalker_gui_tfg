@@ -81,7 +81,7 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html" style="display:none;"><i class="fas fa-arrow-left"></i><span> Página de inicio </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="patients_menu.html"><i class="fas fa-child"></i><span>  Pacientes  </span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapist_menu.html"><i class="fas fa-user-nurse"></i><span> Terapeutas</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapists_menu.html"><i class="fas fa-user-nurse"></i><span> Terapeutas</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="therapy_settings.html"><i class="fas fa-clinic-medical"></i><span> <u> Terapia </u> </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="tutorials.html"><i class="fas fa-book-open"></i><span> Tutoriales </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-info"></i><span>  Ayuda </span></a></li>
@@ -172,23 +172,23 @@
                                     <br>
                                     <div id="toolbar" style="text-align: center;">
                                         <button id="add_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaladdpatient" style="margin: 30px; padding: 40px 25px; border:solid 4px; border-radius: 15%;"><i class="fas fa-user-plus" style="font-size:60px;" ></i> <br/>Añadir Terapeuta</button>
-                                        <button id="edit_therapist" type="button" class="btn btn-outline-primary" style="margin: 30px; padding: 40px 30px; border:solid 4px; border-radius: 15%;" onclick="redirectEditPatien()"><i class="fas fa-edit"style="font-size:60px;"></i> <br/>Editar Terapeuta</button>
+                                        <button id="edit_therapist" type="button" class="btn btn-outline-primary" style="margin: 30px; padding: 40px 30px; border:solid 4px; border-radius: 15%;" onclick="redirectEditTherapist()"><i class="fas fa-edit"style="font-size:60px;"></i> <br/>Editar Terapeuta</button>
                                         <script type="text/javascript">
-                                            function redirectEditPatien(){
-                                                window.location.href="patients_edit.html";
+                                            function redirectEditTherapist(){
+                                                window.location.href="therapists_edit.html";
                                             }
                                         </script>
-                                        <button id="remove_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" style="margin: 30px; padding: 40px 20px; border:solid 4px; border-radius: 15%;" onclick="redirectRemovePatien()"><i class="fas fa-user-times"style="font-size:60px;"></i> <br/>Eliminar Terapeuta</button>
+                                        <button id="remove_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" style="margin: 30px; padding: 40px 20px; border:solid 4px; border-radius: 15%;" onclick="redirectRemoveTherapist()"><i class="fas fa-user-times"style="font-size:60px;"></i> <br/>Eliminar Terapeuta</button>
                                         <script type="text/javascript">
-                                            function redirectRemovePatien(){
-                                                window.location.href="patients_remove.html";
+                                            function redirectRemoveTherapist(){
+                                                window.location.href="therapists_remove.html";
                                             }
                                         </script>
                                         <br/>
-                                        <button id="download_list_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" style="margin: 30px; padding: 30px 30px; border:solid 4px; border-radius: 15%;" onclick="redirectDownloadPatien()"><i class="fas fa-download"style="font-size:60px;"></i> <br/>Descargar Lista <br/>De Terapeutas</button>
+                                        <button id="download_list_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" style="margin: 30px; padding: 30px 30px; border:solid 4px; border-radius: 15%;" onclick="redirectDownloadTherapist()"><i class="fas fa-download"style="font-size:60px;"></i> <br/>Descargar Lista <br/>De Terapeutas</button>
                                         <script type="text/javascript">
-                                            function redirectDownloadPatien(){
-                                                window.location.href="patients_download.html";
+                                            function redirectDownloadTherapist(){
+                                                window.location.href="therapists_downoald.html";
                                             }
                                         </script>
                                     </div>
