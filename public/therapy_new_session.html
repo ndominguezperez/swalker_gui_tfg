@@ -118,7 +118,118 @@
                         </ul>
                      </div>
                 </nav>  
-                
+
+                <!-- Start: General Therapy settings -->
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">&nbsp;Configuración de Terapia</h3>
+                                <h3 class="text-center text-dark mb-4">&nbsp;Usuarios</h3>
+                                <div class="card-body text-center shadow">
+                                    <div class="mb-3">
+                                        <h4>Therapist:</h4>
+                                        <h4 class="btn btn-outline-secondary" id="therapist-name">Nombre del Terapeuta</h4>
+                                        <h4>Patient:</h4>
+                                        <h4 class="btn btn-outline-secondary" id="patient-name">Nombre del Paciente</h4>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-sm" value="save_settings" id="save_settings" type="submit">Guardar</button>
+                                    </div>
+  
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <h4 class="text-primary m-0 font-weight-bold">Parámetros Generales de la Terapia</h4>
+                        </div>                    
+                        <div class="card-body">
+                            <form>
+                                <div class="form-row">
+									<div class="col" style="display: flex; justify-content: space-around">
+                                        <div class="form-group" >
+                                            <label for="swalker used">
+                                                <h4>
+                                                    ¿Va a utilizar el SWalker?:          
+                                                </h4>
+                                            </label>
+                                            <br>
+                                            <select class="btn  btn-primary" id="swaker_boolean" class="form-control" onchange="setUseSwalkerBoolean(this)" >
+                                                <option selected value="slow">Si</option>
+                                                <option value="normal">No</option>
+                                            </select>   
+                                        </div>
+                                    </div>
+                                    <div class="col" style="display: flex; justify-content: space-around">
+                                        <div class="form-group" >
+                                            <label for="gait velocity">
+                                                <h4>
+                                                    Velocidad de la Marcha:          
+                                                </h4>
+                                                <h4  class="btn btn-outline-secondary" id="velocity_ms_value">
+                                                    0.08 (m/s)
+                                                </h4>
+                                            </label>
+                                            <br>
+                                            <select class="btn  btn-primary" id="velocity_value" class="form-control" onchange="setGaitVelocity(this)" >
+                                                <option selected value="slow">Baja</option>
+                                                <option value="normal">Media</option>
+                                                <option value="high">Alta</option>
+                                                <option value="none">No aplica</option>
+                                            </select>   
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <!--
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="rom">
+                                                <h4>
+                                                    Range Of Movement (ROM):          
+                                                </h4>
+                                                <h4  class="btn btn-outline-secondary" id="rom_value">
+                                                    50%
+                                                </h4>
+                                            </label>
+                                            <input class="form-control-range" id="rom" type="range">
+                                        </div>
+                                    </div>
+                                    -->
+                                    <div class="col" style="display: flex; justify-content: space-around">
+                                        <div class="form-group" >
+                                            <label for="pbws">
+                                                <h4>
+                                                    Porcentaje de peso soportado         
+                                                </h4>
+                                                <h4  class="btn btn-outline-secondary" id="pbws_value">
+                                                    50%
+                                                </h4>
+                                            </label>
+                                            <input class="form-control-range" id="pbws" type="range">
+                                        </div>
+                                    </div> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Transfer Protocol -->
+                <div class="modal fade" id="modaltransferpatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Protocolo de Transferencia del Paciente </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        <p> Aquí se mostrará el protocolo de transferencia del paciente </p>
+
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="b_ok"> Continuar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div> 
+
                 <!-- Start: General Therapy settings -->
                 <div class="container-fluid">
                     <h3 class="text-primary m-0 font-weight-bold">Nueva terapia</h3>
@@ -205,8 +316,7 @@
                                             </label>
                                             <input class="form-control-range" id="pbws" type="range">
                                         </div>
-                                    </div>
-                                    
+                                    </div>                                   
                                 </div>
                             </form>
                         </div>
