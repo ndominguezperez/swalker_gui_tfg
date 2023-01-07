@@ -83,7 +83,7 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html" style="display:none;"><i class="fas fa-arrow-left"></i><span> Página de inicio</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="patients_menu.html"><i class="fas fa-child"></i><span>  Pacientes </span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapist_menu.html"><i class="fas fa-user-nurse"></i><span> Terapeutas</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapists_menu.html"><i class="fas fa-user-nurse"></i><span> Terapeutas</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="therapy_menu.html"><i class="fas fa-clinic-medical"></i><span> Terapia </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="tutorials.html"><i class="fas fa-book-open"></i><span> <u> Tutoriales </u></span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-info"></i><span> Ayuda </span></a></li>
@@ -125,25 +125,28 @@
                             <div style ="text-align: center; ">
                             
                             <!-- --------------ESTO YA ES LO QUE APARECE EN EL RECUADRO BLANCO------------------ -->
-                            <div id="toolbar" style="text-align: center;">
-                                <button id="tutorial1" type="button" class="btn btn-outline-primary" style="height: 200px; width: 200px; margin: 50px; border: solid 5px; border-radius: 15%; text-align: center;" onclick="redirectTutorial1()"><i class="fas fa-exclamation-triangle" style="font-size:60px;"></i> <br/><br/>Precauciones <br/>y <br/>comprobaciones</button>
-                                <script type="text/javascript">
-                                    function redirectTutorial1(){
-                                        window.location.href="tutorial1.html";
-                                    }
-                                </script>
-                                <button id="tutorial2" type="button" class="btn btn-outline-primary"  style="height: 200px; width: 200px; margin: 50px; border: solid 5px; border-radius: 15%; text-align: center;" onclick="redirectTutorial2()"><i class="fas fa-wrench" style="font-size:60px;"></i> <br/> <br/>Preparación del sistema <br/>y <br/>colocación del usuario</button> 
-                                <script type="text/javascript">
-                                    function redirectTutorial2(){
-                                        window.location.href="tutorial2.html";
-                                    }
-                                </script>
-                                <button id="tutorial3" type="button" class="btn btn-outline-primary"  style="height: 200px; width: 200px; margin: 50px; border: solid 5px; border-radius: 15%; text-align: center;" onclick="redirectTutorial3()"><i class="fas fa-wifi" style="font-size:60px;"></i> <br/><br/>Conexión <br/>y <br/>manejo de la web</button> 
-                                <script type="text/javascript">
-                                    function redirectTutorial3(){
-                                        window.location.href="tutorial3.html";
-                                    }
-                                </script>
+                            <p style="color: #057bfe; font-weight: bold; padding: 15px; border: 2px solid #057bfe; border-radius: 10px; text-align:center; font-size:22px;">Tutoriales</p>
+                            <div class="container-fluid" style="padding:50px;">
+                                <div id="toolbar" style="text-align: center;">
+                                    <button id="tutorial1" type="button" class="btn btn-outline-primary" style="height: 200px; width: 200px; margin: 50px; border: solid 5px; border-radius: 15%; text-align: center;" onclick="redirectTutorial1()"><i class="fas fa-exclamation-triangle" style="font-size:60px;"></i> <br/><br/>Precauciones <br/>y <br/>comprobaciones</button>
+                                    <script type="text/javascript">
+                                        function redirectTutorial1(){
+                                            window.location.href="tutorial1.html";
+                                        }
+                                    </script>
+                                    <button id="tutorial2" type="button" class="btn btn-outline-primary"  style="height: 200px; width: 200px; margin: 50px; border: solid 5px; border-radius: 15%; text-align: center;" onclick="redirectTutorial2()"><i class="fas fa-wrench" style="font-size:60px;"></i> <br/> <br/>Preparación del sistema <br/>y <br/>colocación del usuario</button> 
+                                    <script type="text/javascript">
+                                        function redirectTutorial2(){
+                                            window.location.href="tutorial2.html";
+                                        }
+                                    </script>
+                                    <button id="tutorial3" type="button" class="btn btn-outline-primary"  style="height: 200px; width: 200px; margin: 50px; border: solid 5px; border-radius: 15%; text-align: center;" onclick="redirectTutorial3()"><i class="fas fa-wifi" style="font-size:60px;"></i> <br/><br/>Conexión <br/>y <br/>manejo de la web</button> 
+                                    <script type="text/javascript">
+                                        function redirectTutorial3(){
+                                            window.location.href="tutorial3.html";
+                                        }
+                                    </script>
+                                </div>
                             </div>
                             <!--
                             <ul class="nav nav-pills centered"><li class="nav-item"><a class="nav-link active" href="tutorial1.html" style="background-color:#4e73df;"><i class="fas fa-book-open"></i><span> Precauciones y comprobaciones </span></a></li></ul>
