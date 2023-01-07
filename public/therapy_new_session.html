@@ -121,17 +121,23 @@
 
                 <!-- Start: General Therapy settings -->
                 <div class="container-fluid">
-                    <h3 class="text-center text-dark mb-4">&nbsp;Configuración de Terapia</h3>
+                    <h4 class="text-primary m-0 font-weight-bold">Configuración de Terapia</h4>
                     <div class="row mb-3">
                         <div class="col-lg-4">
-                            <div class="card mb-3">
-                                <h3 class="text-center text-dark mb-4">&nbsp;Usuarios</h3>
-                                <div class="card-body text-center shadow">
-                                    <div class="mb-3">
-                                        <h4>Therapist:</h4>
-                                        <h4 class="btn btn-outline-secondary" id="therapist-name">Nombre del Terapeuta</h4>
-                                        <h4>Patient:</h4>
-                                        <h4 class="btn btn-outline-secondary" id="patient-name">Nombre del Paciente</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card shadow">
+                                        <div class="card-header py-3">
+                                            <h3 class="text-center text-dark mb-4">&nbsp;Usuarios</h3>
+                                        </div>
+                                        <div class="card-body text-center ">
+                                            <div class="mb-3">
+                                                <h4>Therapist:</h4>
+                                                <h4 class="btn btn-outline-secondary" id="therapist-name">Nombre del Terapeuta</h4>
+                                                <h4>Patient:</h4>
+                                                <h4 class="btn btn-outline-secondary" id="patient-name">Nombre del Paciente</h4>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +171,7 @@
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label for="leg_length">
-                                                                <h4>Longitud de la pierna (cm)</h4>
+                                                                <h4>Longitud pierna (cm)</h4>
                                                             </label>
                                                             <input class="form-control"  type="number"  onchange="this.value=this.value ? Math.max(Math.min(this.value,90),0) : null" min="0" max="90" id="leg_length"placeholder="Longitud de pierna" disabled>
                                                         </div>
@@ -235,7 +241,7 @@
                     </div>
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
-                            <h4 class="text-primary m-0 font-weight-bold">Parámetros Generales de la Terapia</h4>
+                            <h3 class="text-center text-dark mb-4">&nbsp;Parámetros Generales de la Terapia</h3>
                         </div>                    
                         <div class="card-body">
                             <form>
