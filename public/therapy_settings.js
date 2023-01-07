@@ -168,7 +168,6 @@ window.onload = function(){
 				location.replace("therapy_monitoring.html")
 			}
         }
-        location.replace("therapy_monitoring.html");
     };
     $('#b_ok').on('click', function() {
       // Redirect to the therapy monitoring window
