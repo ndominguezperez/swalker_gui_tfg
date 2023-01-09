@@ -278,6 +278,22 @@
                                                     </div>
                                                 </div>
                                                 <!-- CAJA DE VELOCIDAD DE LA MARCHA -->
+                                                <!-- Boton para cambiar la VELOCIDAD -->
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <strong>Velocidad de la marcha</strong>
+                                                        </label>
+                                                        <div class="mb-3 d-flex centered">
+                                                            <select class="btn  btn-primary" id="select_speed" class="form-control" onchange="selectGaitSpeed(this)" >
+                                                                <option selected value="slow">Baja</option>
+                                                                <option value="normal">Media</option>
+                                                                <option value="high">Alta</option>
+                                                            </select> 
+                                                        </div>
+                                                    </div>    
+                                                </div>
+                                                    
                                                 <!-- COMO HACER ESTO -->
                                                 <!-- 
                                                 <div class="col">
@@ -373,13 +389,6 @@
                                                         </div>
                                                         
                                                     </div>
-                                                    <!-- Boton para cambiar la VELOCIDAD -->
-                                                    <h3>Velocidad: </h3>
-                                                    <select class="btn  btn-primary" id="select_speed" class="form-control" onchange="selectGaitSpeed(this)" >
-                                                        <option selected value="slow">Baja</option>
-                                                        <option value="normal">Media</option>
-                                                        <option value="high">Alta</option>
-                                                    </select> 
                                                 </div>
                                             </div>
                                         </div>
@@ -388,13 +397,11 @@
                                 <div class="col-lg-8">
                                     <div class="row">
                                         <div class="col">
-                                            <div class="card-body">
-                                                <div class="chart-area">
+                                            <div class="card shadow mb-4"></div>
+                                                <div class="card-body">
+                                                    <div class="chart-area">
                                                         <h3>ROM</h3>
-                                                    <!-- TABS CONTENT-->
-                                                    <div class="tab-content">
                                                         <!-- GRAPHS FOR ROM DATA -->
-                                                        <div class="tab-pane fade show active" id="rom" role="tabpanel">
                                                         <div id="jointCharts" class="card shadow mb-4">
                                                             <div class="container-fluid">
                                                                 <br>
@@ -412,7 +419,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div>    
                                                                     <div class="col-lg-6">
                                                                         <div class="card mb-3">
                                                                             <div class="card-header d-flex justify-content-between align-items-center">
@@ -430,9 +437,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        </div>
-                                                    </div>
-                                                </div>   
+                                                    </div>   
+                                                </div>
                                             </div>
                                         </div>   
                                     </div>    
