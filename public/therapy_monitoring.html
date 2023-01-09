@@ -352,57 +352,53 @@
 
 
                     <!-- Joint Charts-->
-                    <!-- PANEL DE DIRECCION Y VELOCIDAD -->
-                    <div class="tab-pane fade show active" id="emg" role="tabpanel" aria-labelledby="emg_tabs">
-                        <div class="container-fluid">
-                            <div>
-                                <br>
-                            </div>
-                            <div class="row mb-3" style="display: flex; justify-content: space-around">
-                                <div class="col-lg-4">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card shadow mb-4">
-                                                <div class="card-body">
-                                                    <div class="chart-area">
-                                                        <h3>Seleccione una dirección:</h3>
-                                                        <div>
-                                                            <!-- Boton STOP  -->
-                                                            <h3 class="btn btn-secondary" id="direction_html">Stop</h3>
-                                                        </div>
-                                                        <div class="move_left icon">
-                                                            <div id="move_left" class="arrow arrow_left"></div>
-                                                        </div>
-                                                        <div class="move_fordward icon">
-                                                            <div id="move_fordward" class="arrow arrow_fordward"></div>
-                                                        </div>
-                                                        <div class="move_backwards icon">
-                                                            <div id="move_backwards" class="arrow arrow_backwards"></div>
-                                                        </div>
-                                                        <div class="move_right icon">
-                                                            <div id="move_right" class="arrow arrow_right"></div>
-                                                        </div>
-                                                        <div class="stop icon">
-                                                            <div id="move_stop" class="circle">
-                                                                <div id="stop_id" class="rectangle" class></div>
-                                                            </div>
-                                                        </div>
-                                                        
+                    <!-- PANEL DE DIRECCION y grafica de ROM -->
+                    <div class="container-fluid">
+                        <div class="row mb-3" style="display: flex; justify-content: space-around">
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-body">
+                                                <div class="chart-area">
+                                                    <h3>Seleccione una dirección:</h3>
+                                                    <div>
+                                                        <!-- Boton STOP  -->
+                                                        <h3 class="btn btn-secondary" id="direction_html">Stop</h3>
                                                     </div>
+                                                    <div class="move_left icon">
+                                                        <div id="move_left" class="arrow arrow_left"></div>
+                                                    </div>
+                                                    <div class="move_fordward icon">
+                                                        <div id="move_fordward" class="arrow arrow_fordward"></div>
+                                                    </div>
+                                                    <div class="move_backwards icon">
+                                                        <div id="move_backwards" class="arrow arrow_backwards"></div>
+                                                    </div>
+                                                    <div class="move_right icon">
+                                                        <div id="move_right" class="arrow arrow_right"></div>
+                                                    </div>
+                                                    <div class="stop icon">
+                                                        <div id="move_stop" class="circle">
+                                                            <div id="stop_id" class="rectangle" class></div>
+                                                        </div>
+                                                    </div>
+                                                        
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-8">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card shadow mb-4"></div>
-                                                <div class="card-body">
-                                                    <div class="chart-area">
-                                                        <h3>ROM</h3>
-                                                        <!-- GRAPHS FOR ROM DATA -->
-                                                        <div id="jointCharts" class="card shadow mb-4">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-body">
+                                                <div class="chart-area">
+                                                    <h3>ROM</h3>
+                                                    <!-- GRAPHS FOR ROM DATA -->
+                                                    <div id="jointCharts" class="card shadow mb-4">
                                                             <div class="container-fluid">
                                                                 <br>
                                                                 <div class="row mb-3">
@@ -436,23 +432,17 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div>   
-                                                </div>
+                                                    </div>
+                                                </div>   
                                             </div>
-                                        </div>   
-                                    </div>    
-                                </div>       
-                            </div>
-                                        <script src="socket.io/socket.io.js"></script>
-                                        <script src="move.js"></script>
+                                        </div>
                                     </div>
-                                </div>
-                    
-					
-					
-					<!-- GRAPHS FOR ROM EMG -->
-                    <!-- NO HAY-->
+                                </div>   
+                            </div>    
+                        </div> 
+                        <script src="socket.io/socket.io.js"></script>
+                        <script src="move.js"></script>      
+                    </div>
 
                     <!-- TABS PARA LA NEVEGACION DE LAS DIFERENTES TABLAS-->
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -507,8 +497,8 @@
                             </div>
                         </div>
                     </div>
-
-
+                </div>
+            </div>
             <!-- End: Charts -->
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
