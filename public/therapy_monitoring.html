@@ -269,8 +269,8 @@
                                                 <!-- CAJA DE PESO SOPORTADO  -->
                                                 <div class="col">
                                                     <div class="form-group">
-                                                        <label>
-                                                            <center><strong>Peso Soportado (%)</strong></center>
+                                                        <label style="text-align: center;">
+                                                            <strong>Peso Soportado (%)</strong>
                                                         </label>
                                                         <div class="mb-3 d-flex centered">
                                                             <button class="btn btn-outline-secondary" type="button" id="supported_weight" value="10"> 0.00 </button>
@@ -281,8 +281,8 @@
                                                 <!-- Boton para cambiar la VELOCIDAD -->
                                                 <div class="col">
                                                     <div class="form-group">
-                                                        <label>
-                                                            <center><strong>Velocidad de la marcha</strong></center>
+                                                        <label style="text-align: center;">
+                                                            <strong>Velocidad de la marcha</strong>
                                                         </label>
                                                         <div class="mb-3 d-flex centered">
                                                             <select class="btn  btn-primary" id="select_speed" class="form-control" onchange="selectGaitSpeed(this)" >
@@ -312,8 +312,8 @@
                                                 
                                                 <div class="col">
                                                     <div class="form-group">
-                                                        <label>
-                                                            <center><strong>Duracion</strong></center>
+                                                        <label style="text-align: center;">
+                                                            <strong>Duracion</strong>
                                                         </label>
                                                         <div class="mb-3 d-flex centered">
                                                             <button class="btn btn-outline-secondary" type="button" id="supported_weight" value="10"> 0.00 </button>
@@ -329,12 +329,7 @@
                         </div>    
                     </div>
                     
-                    <div class="mb-3 d-flex centered" >
-                        <!-- TRES BOTONES SUPER PUESTOS PARA DIFERENTES COSAS? AL EJECUTAR UNO FUNCIONAN TODOS? -->
-						<button class="btn btn-primary " value="start_position" id="save_data" type="submit" style="margin:5px; background: #fd4e4e; border-color: #fd4e4e; display:none">Guardar datos</button>
-                        <button class="btn btn-primary btn-xl" value="start_calibration" id="start_stop" type="submit" style="margin:5px; background: #0968e4">Nueva Terapia</button>
-                        <button class="btn btn-primary btn-xl" id="calibrate" type="submit" style="margin:5px; background: #0968e4; display:none">Calibrar</button>
-                    </div>
+
 
 					<div class="row" style="display: flex; justify-content: space-around"  >
 						<div class="card shadow mb-12" id="observations_div" style="display:none">
@@ -353,37 +348,157 @@
 
                     <!-- Joint Charts-->
                     <!-- PANEL DE DIRECCION y grafica de ROM -->
-                    <div class="container-fluid">
-                        <div class="row h-auto" style="display: flex; justify-content: space-around">
+                    <div class="container-fluid" style="height: 600px;">
+                        <div class="row" style="display: flex; justify-content: space-around; height: 600px;">
                             <div class="col-lg-4">
-                                <div class="row">
+                                <div class="row" style="height: 550px;">
                                     <div class="col">
-                                        <div class="card shadow mb-4">
-                                            <div class="card-body">
-                                                <div class="chart-area">
+                                        <div class="card shadow mb-4"style="height: 550px;">
+                                            <div class="card-body"style="height: 550px;">
+                                                <div class="chart-area" style="height: 500px;">
                                                     <h3>Seleccione una dirección:</h3>
                                                     <div>
                                                         <!-- Boton STOP  -->
                                                         <h3 class="btn btn-secondary" id="direction_html">Stop</h3>
                                                     </div>
-                                                    <div class="move_left icon">
-                                                        <div id="move_left" class="arrow arrow_left"></div>
+                                                    <br>
+                                                    <div class="card-body" style="height: 300px;">
+                                                        <form style="height: 300px;">
+                                                            <div class="form-row" style="height: 100px;" >
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="move_fordward icon" >
+                                                                            <div id="move_fordward" class="arrow arrow_fordward"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row"style="height: 100px;" >
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="move_left icon" >
+                                                                            <div id="move_left" class="arrow arrow_left"></div>
+                                                                        </div>                                
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="stop icon" >
+                                                                            <div id="move_stop" class="circle">
+                                                                                <div id="stop_id" class="rectangle" class></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="move_right icon" >
+                                                                            <div id="move_right" class="arrow arrow_right"></div>
+                                                                        </div> 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row"style="height: 100px;" >
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <div class="move_backwards icon">
+                                                                            <div id="move_backwards" class="arrow arrow_backwards"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
                                                     </div>
-                                                    <div class="move_fordward icon">
-                                                        <div id="move_fordward" class="arrow arrow_fordward"></div>
-                                                    </div>
-                                                    <div class="move_backwards icon">
-                                                        <div id="move_backwards" class="arrow arrow_backwards"></div>
-                                                    </div>
-                                                    <div class="move_right icon">
-                                                        <div id="move_right" class="arrow arrow_right"></div>
-                                                    </div>
-                                                    <div class="stop icon">
-                                                        <div id="move_stop" class="circle">
-                                                            <div id="stop_id" class="rectangle" class></div>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card shadow mb-4"style="height: 550px;">
+                                    <div class="card-body"style="height: 550px;">
+                                        <div class="chart-area"style="height: 500px;">
+                                            <h3>ROM</h3>
+                                            <!-- GRAPHS FOR ROM DATA -->
+                                            <div id="jointCharts" class="card shadow mb-4">
+                                                <div class="container-fluid">
+                                                    <br>
+                                                    <div class="row mb-3">
+                                                        <div class="col-lg-6">
+                                                            <div class="card mb-3">
+                                                                <div class="card-header d-flex justify-content-between align-items-center">
+                                                                    <h5 class="text-primary font-weight-bold m-0" style="width:100%;text-align: center;">Cadera Izquierda</h5>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="chart-area" >
+                                                                        <div id="LeftHip">
+                                                                            <canvas id="l_hip_chart"></canvas>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>    
+                                                        <div class="col-lg-6">
+                                                            <div class="card mb-3">
+                                                                <div class="card-header d-flex justify-content-between align-items-center">
+                                                                    <h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Cadera Derecha</h5>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="chart-area">
+                                                                        <div id="rightLeftHip">
+                                                                            <canvas id="r_hip_chart"></canvas>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                        
+                                                </div>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                </div> 
+                            </div>    
+                        </div> 
+                        <script src="socket.io/socket.io.js"></script>
+                        <script src="move.js"></script>      
+                    </div>
+                    <br>
+                    <!-- PANEL DE Conexiones y vision VR-->
+                    <div class="container-fluid" style="height: 550px;">
+                        <div class="row" style="display: flex; justify-content: space-around; height: 400px;">
+                            <div class="col-lg-4">
+                                <div class="row" style="height: 350px;">
+                                    <div class="col">
+                                        <div class="card shadow mb-4"style="height: 350px;">
+                                            <div class="card-body"style="height: 350px;">
+                                                <div class="chart-area" style="height: 300px;">
+                                                    <h3>Conexiones</h3>
+                                                    <!-- Dos botones de SWalker y Delsys -->
+                                                    <div class="mb-3 d-flex centered">
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <!-- Boton Swalker  -->
+                                                        <button style="margin:5px; background: #808080; border-color: #0968e4" class="btn btn-primary " value="off" id="connect_swalker" type="submit"> Conectar SWalker </button>
+                                                        <!-- Boton Delsys -->
+                                                        <button class="btn btn-primary " value="off" id="enable_emg" type="submit" style="margin:5px; background: #808080; border-color: #0968e4"> Conectar Delsys </button>
+                                                        <!-- NO SE QUE ES ESTO  -->
+                                                        <button class="btn btn-primary " value="off" id="connect_BLE" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" > Test BLE </button>
+                                                    </div>
+                                                    
+                                                    <div class="mb-3 d-flex centered">
+                                                        <!-- Boton VR -->
+                                                        <button class="btn btn-primary " value="off" id="enable_vr" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4" disabled> VR Desconectado </button>
+                                                        <!-- NO SE QUE ES ESTO  -->
+                                                        <button class="btn btn-primary " value="off" id="juego1" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" disabled> Juego 1 </button>
+                                                        <!-- NO SE QUE ES ESTO  -->
+                                                        <button class="btn btn-primary " value="off" id="juego2" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" disabled> Juego 2 </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -391,59 +506,24 @@
                                 </div>
                             </div>
                             <div class="col-lg-8">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card shadow mb-4">
-                                            <div class="card-body">
-                                                <div class="chart-area">
-                                                    <h3>ROM</h3>
-                                                    <!-- GRAPHS FOR ROM DATA -->
-                                                    <div id="jointCharts" class="card shadow mb-4">
-                                                            <div class="container-fluid">
-                                                                <br>
-                                                                <div class="row mb-3">
-                                                                    <div class="col-lg-6">
-                                                                        <div class="card mb-3">
-                                                                            <div class="card-header d-flex justify-content-between align-items-center">
-                                                                                <h5 class="text-primary font-weight-bold m-0" style="width:100%;text-align: center;">Cadera Izquierda</h5>
-                                                                            </div>
-                                                                            <div class="card-body">
-                                                                                <div class="chart-area" >
-                                                                                    <div id="LeftHip">
-                                                                                        <canvas id="l_hip_chart"></canvas>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>    
-                                                                    <div class="col-lg-6">
-                                                                        <div class="card mb-3">
-                                                                            <div class="card-header d-flex justify-content-between align-items-center">
-                                                                                <h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Cadera Derecha</h5>
-                                                                            </div>
-                                                                            <div class="card-body">
-                                                                                <div class="chart-area">
-                                                                                    <div id="rightLeftHip">
-                                                                                        <canvas id="r_hip_chart"></canvas>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                    </div>
-                                                </div>   
+                                <div class="card shadow mb-4"style="height: 550px;">
+                                    <div class="card-body"style="height: 550px;">
+                                        <div class="chart-area"style="height: 500px;">
+                                            <h3>Vision Realidad Virtual</h3>
+                                            
+                                            <div id="jointCharts" class="card shadow mb-4">
+                                                <div class="container-fluid">
+                                                    <!-- Aqui dentro va la vision de realidad virtual-->
+                                                </div>
                                             </div>
-                                        </div>
+                                        </div>   
                                     </div>
-                                </div>   
+                                </div> 
                             </div>    
                         </div> 
                         <script src="socket.io/socket.io.js"></script>
                         <script src="move.js"></script>      
                     </div>
-
                     <!-- TABS PARA LA NEVEGACION DE LAS DIFERENTES TABLAS-->
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -496,6 +576,13 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    
+                    <div class="mb-3 d-flex centered" >
+                        <!-- TRES BOTONES SUPER PUESTOS PARA DIFERENTES COSAS? AL EJECUTAR UNO FUNCIONAN TODOS? -->
+						<button class="btn btn-primary " value="start_position" id="save_data" type="submit" style="margin:5px; background: #fd4e4e; border-color: #fd4e4e; display:none">Guardar datos</button>
+                        <button class="btn btn-primary btn-xl" value="start_calibration" id="start_stop" type="submit" style="margin:5px; background: #0968e4">Nueva Terapia</button>
+                        <button class="btn btn-primary btn-xl" id="calibrate" type="submit" style="margin:5px; background: #0968e4; display:none">Calibrar</button>
                     </div>
                 </div>
             </div>
