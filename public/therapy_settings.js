@@ -115,11 +115,13 @@ window.onload = function(){
 
 	
     // Updates the value of the "pbws" range input
+    /*
     document.getElementById("pbws").onchange = function() {
         var pbws = document.getElementById("pbws").value;
         document.getElementById("pbws_value").innerHTML = pbws + "%";
     };
-	
+	*/
+    
     // When the "save_settings" button is clicked, send all the configured parameters to the server 
     document.getElementById("save_settings").onclick = function() {
         // First click change colour
