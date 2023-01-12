@@ -123,8 +123,9 @@
                 <div class="container-fluid">
                     <h2 class="text-primary m-0 font-weight-bold">Nueva Terapia</h2>
                     <br>
+                    <br>
                     <div class="row mb-3">
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                             <div class="row">
                                 <div class="col">
                                     <div class="card shadow">
@@ -133,17 +134,17 @@
                                         </div>
                                         <div class="card-body text-center ">
                                             <div class="mb-3">
-                                                <h4>Terapeuta:</h4>
-                                                <h4 class="btn btn-outline-secondary" id="therapist-name">Nombre del Terapeuta</h4>
-                                                <h4>Paciente:</h4>
-                                                <h4 class="btn btn-outline-secondary" id="patient-name">Nombre del Paciente</h4>
+                                                <h5>Terapeuta:</h5>
+                                                <h5 class="btn btn-outline-secondary" id="therapist-name">Nombre del Terapeuta</h5>
+                                                <h5>Paciente:</h5>
+                                                <h5 class="btn btn-outline-secondary" id="patient-name">Nombre del Paciente</h5>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-8" style="display:none;">
                             <div class="row">
                                 <div class="col">
                                     <div class="card shadow">
@@ -239,7 +240,68 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-9">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card shadow">
+                                        <div class="card-header py-3">
+                                            <h3 class="text-center text-dark">&nbsp;Parámetros Generales de la Terapia</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form>
+                                                <div class="form-row">
+                                                    <div class="col" style= "display: flex; align-items: center; ">
+                                                        <div class="form-group" >
+                                                            <label for="swalker used">
+                                                                <h5>¿Va a utilizar el SWalker?</h5>
+                                                            </label>
+                                                            <br>
+                                                            <select class="btn  btn-primary" id="swaker_boolean" style="text-align: center;"class="form-control" onchange="setUseSwalkerBoolean(this)">
+                                                                <option selected value="slow">Si</option>
+                                                                <option value="normal">No</option>
+                                                            </select> 
+                                                        </div>
+                                                    </div>   
+                                                    <div class="col" style= "display: flex; align-items: center;">
+                                                        <div class="form-group">
+                                                            <label for="gait velocity">
+                                                                <h5>Velocidad de la Marcha</h5>
+                                                            </label>
+                                                            <br>
+
+                                                            <h5  class="btn btn-outline-secondary" id="velocity_ms_value"> 0.08 (m/s)</h5>
+                                                            <select class="btn  btn-primary" id="velocity_value" class="form-control" onchange="setGaitVelocity(this)" >
+                                                                <option selected value="slow">Baja</option>
+                                                                <option value="normal">Media</option>
+                                                                <option value="high">Alta</option>
+                                                                <option value="none">No aplica</option>
+                                                            </select>                                                     
+                                                        </div>
+                                                    </div>
+                                                    <div class="col" style= "display: flex; align-items: center;">
+                                                        <div class="form-group">
+                                                            <label for="pbws">
+                                                                <h5>Porcentaje de peso soportado</h5>
+                                                            </label>                                                            
+                                                            <select class="btn  btn-primary" id="PBWS_value" class="form-control" onchange="setPBWS(this)" >
+                                                                <option value="0"> 0%</option>
+                                                                <option value="25">25%</option>
+                                                                <option selected value="50">50%</option>
+                                                                <option value="75">75%</option>
+                                                                <option value="100">100%</option>
+                                                            </select>  
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <br>
+                    <!--
                     <div class="card shadow mb-3">
                         <div class="card-header py-3">
                             <h3 class="text-center text-dark">&nbsp;Parámetros Generales de la Terapia</h3>
@@ -280,23 +342,6 @@
                                             </select>   
                                         </div>
                                     </div>
-                                    
-                                    
-                                    <!--
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="rom">
-                                                <h4>
-                                                    Range Of Movement (ROM):          
-                                                </h4>
-                                                <h4  class="btn btn-outline-secondary" id="rom_value">
-                                                    50%
-                                                </h4>
-                                            </label>
-                                            <input class="form-control-range" id="rom" type="range">
-                                        </div>
-                                    </div>
-                                    -->
                                     <div class="col" style="display: flex; justify-content: space-around">
                                         <div class="form-group" >
                                             <label for="pbws">
@@ -314,6 +359,7 @@
                             </form>
                         </div>
                     </div>
+                    -->
                     <!-- Dos botones de SWalker y Delsys -->
                     <div class="mb-3 d-flex centered">
                         <!-- Boton Swalker  -->
@@ -322,9 +368,8 @@
                         <button class="btn btn-primary " value="off" id="enable_emg" type="submit" style="margin:5px; background: #808080; border-color: #0968e4"> Conectar Delsys </button>
                         <!-- NO SE QUE ES ESTO  -->
                         <button class="btn btn-primary " value="off" id="connect_BLE" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" > Test BLE </button>
-                    </div>
                     
-                    <div class="mb-3 d-flex centered">
+
                         <!-- Boton VR -->
                         <button class="btn btn-primary " value="off" id="enable_vr" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4" disabled> VR Desconectado </button>
                         <!-- NO SE QUE ES ESTO  -->
@@ -332,6 +377,7 @@
                         <!-- NO SE QUE ES ESTO  -->
                         <button class="btn btn-primary " value="off" id="juego2" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" disabled> Juego 2 </button>
                     </div>
+                    <br>
                     <!-- Este boton sirve para darle a la siguiente pantalla -->
                     <div class="form-group">
                         <center> <button class="btn btn-primary btn-lg" value="save_settings" id="save_settings" type="submit">Guardar</button></center>
