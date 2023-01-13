@@ -268,8 +268,8 @@
                                         <form>
                                             <div class="form-row">
                                                 <!-- CAJA DE PESO SOPORTADO  -->
-                                                <div class="col">
-                                                    <div class="form-group">
+                                                <div class="col" style="text-align: center;">
+                                                    <div class="form-group" style="text-align: center;">
                                                         <label style="text-align: center;">
                                                             <strong>Peso Soportado (%)</strong>
                                                         </label>
@@ -280,12 +280,12 @@
                                                 </div>
                                                 <!-- CAJA DE VELOCIDAD DE LA MARCHA -->
                                                 <!-- Boton para cambiar la VELOCIDAD -->
-                                                <div class="col">
-                                                    <div class="form-group">
+                                                <div class="col" style="text-align: center;">
+                                                    <div class="form-group" style="text-align: center;">
                                                         <label style="text-align: center;">
                                                             <strong>Velocidad de la marcha</strong>
                                                         </label>
-                                                        <div class="mb-3 d-flex centered">
+                                                        <div class="mb-3 d-flex centered" style="text-align: center;">
                                                             <select class="btn  btn-primary" id="select_speed" class="form-control" onchange="selectGaitSpeed(this)" >
                                                                 <option selected value="slow">Baja</option>
                                                                 <option value="normal">Media</option>
@@ -311,8 +311,8 @@
                                                 <!-- CAJA DE DURACIONN DE LA SESION -->
                                                 <!-- COMO HACER ESTO -->
                                                 
-                                                <div class="col">
-                                                    <div class="form-group">
+                                                <div class="col" style="text-align: center;">
+                                                    <div class="form-group" style="text-align: center;">
                                                         <label style="text-align: center;">
                                                             <strong>Duracion</strong>
                                                         </label>
@@ -348,7 +348,7 @@
 
 
                     <!-- Joint Charts-->
-                    <!-- PANEL DE DIRECCION y grafica de ROM -->
+                    <!-- PANEL DE DIRECCION y CONEXIONES -->
                     <div class="container-fluid" >
                         <div class="row" style="display: flex; justify-content: space-around;">
                             <div class="col-lg-7">
@@ -434,21 +434,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-5" >
                                 <div class="card shadow mb-4"style="height: 350px;">
                                     <div class="card-body"style="height: 350px;">
                                         <div class="chart-area" style="height: 300px;">
-                                            <h3>Conexiones</h3>
+                                            <div class="mb-3 d-flex justify-content-between ">
+                                                <div class="col-lg-8">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="card-body">
+                                                                <h3>Conexiones</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
                                             <!-- Dos botones de SWalker y Delsys -->
                                             <div class="mb-3 d-flex centered">
-                                                <br>
-                                                <br>
-                                                <br>
-                                                <br>
-                                                <br>
-                                                <br>
+
                                                 <!-- Boton Swalker  -->
-                                                <button style="margin:5px; background: #808080; border-color: #0968e4" class="btn btn-primary " value="off" id="connect_swalker" type="submit"> Conectar SWalker </button>
+                                                <button class="btn btn-primary " value="off" id="connect_swalker" type="submit" style="margin:5px; background: #808080; border-color: #0968e4" > Conectar SWalker </button>
                                                 <!-- Boton Delsys -->
                                                 <button class="btn btn-primary " value="off" id="enable_emg" type="submit" style="margin:5px; background: #808080; border-color: #0968e4"> Conectar Delsys </button>
                                                 <!-- NO SE QUE ES ESTO  -->
@@ -463,6 +469,15 @@
                                                 <!-- NO SE QUE ES ESTO  -->
                                                 <button class="btn btn-primary " value="off" id="juego2" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" disabled> Juego 2 </button>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="card shadow mb-4"style="height: 125px;">
+                                    <div class="card-body"style="height: 125px;">
+                                        <div class="chart-area" style="height: 100px; text-align: center; padding-top: 15px;">
+                                            <button class="btn btn-primary " value="start_position" id="save_data" type="submit" style="margin:5px; background: #fd4e4e; border-color: #fd4e4e; width: 130px; ">Guardar datos</button>
+                                            <button class="btn btn-primary btn-xl" value="start_calibration" id="start_stop" type="submit" style="margin:5px; background: #0968e4; width: 130px;">Nueva Terapia</button>
+                                            <button class="btn btn-primary btn-xl" id="calibrate" type="submit" style="margin:5px; background: #0968e4; width: 120px;">Calibrar</button>
                                         </div>
                                     </div>
                                 </div> 
