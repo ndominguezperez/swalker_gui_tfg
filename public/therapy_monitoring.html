@@ -113,9 +113,9 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html" style="display:none;"><i class="fas fa-arrow-left"></i><span> Página de inicio </span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="patients_menu.html"><i class="fas fa-child"></i><span> <u> Pacientes </u> </span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="patients_menu.html"><i class="fas fa-child"></i><span> Pacientes </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="therapists_menu.html"><i class="fas fa-user-nurse"></i><span> Terapeutas</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapy_menu.html"><i class="fas fa-clinic-medical"></i><span> Terapia </span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapy_menu.html"><i class="fas fa-clinic-medical"></i><span> <u> Terapia </u> </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="tutorials.html"><i class="fas fa-book-open"></i><span> Tutoriales </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-info"></i><span>  Ayuda </span></a></li>
                 </ul>
@@ -141,7 +141,7 @@
                                 </div>
                             </li>
                         </ul>
-                     </div>
+                    </div>
                 </nav>
                 
                 <!-- Modal Info connections and therapy -->
@@ -349,41 +349,59 @@
 
                     <!-- Joint Charts-->
                     <!-- PANEL DE DIRECCION y grafica de ROM -->
-                    <div class="container-fluid" style="height: 600px;">
-                        <div class="row" style="display: flex; justify-content: space-around; height: 600px;">
-                            <div class="col-lg-4">
-                                <div class="row" style="height: 550px;">
+                    <div class="container-fluid" >
+                        <div class="row" style="display: flex; justify-content: space-around;">
+                            <div class="col-lg-7">
+                                <div class="row" >
                                     <div class="col">
-                                        <div class="card shadow mb-4"style="height: 550px;">
-                                            <div class="card-body"style="height: 550px;">
-                                                <div class="chart-area" style="height: 500px;">
-                                                    <h3>Seleccione una dirección:</h3>
-                                                    <div>
-                                                        <!-- Boton STOP  -->
-                                                        <h3 class="btn btn-secondary" id="direction_html">Stop</h3>
+                                        <div class="card shadow mb-4" style="height: 500px;">
+                                            <div class="card-body" style="height: 500px;">
+                                                <div class="chart-area" style="height: 450px;">
+                                                    <div class="mb-3 d-flex justify-content-between ">
+                                                        <div class="col-lg-8">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="card-body">
+                                                                        <h3>Seleccione una dirección:</h3>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="card-body">
+                                                                        
+                                                                            <!-- Boton STOP  -->
+                                                                            <h3 class="btn btn-secondary" id="direction_html" style="width: 150px;">Stop</h3>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>    
                                                     </div>
                                                     <br>
-                                                    <div class="card-body" style="height: 300px;">
-                                                        <form style="height: 300px;">
+                                                    <div class="card-body" style="height: 350px;">
+                                                        <!-- <form style="height: 300px;"> -->
                                                             <div class="form-row" style="height: 100px;" >
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <div class="move_fordward icon" >
-                                                                            <div id="move_fordward" class="arrow arrow_fordward"></div>
+                                                                <div class="col" style="text-align:center">
+                                                                    <div class="form-group" style="height: 100px; text-align:center;">
+                                                                        <div class="move_fordward icon" style="text-align: center;">
+                                                                            <div id="move_fordward" class="arrow arrow_fordward" style="text-align: center;"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-row"style="height: 100px;" >
-                                                                <div class="col">
-                                                                    <div class="form-group">
+                                                            <div class="form-row" style="height: 100px;">
+                                                                <div class="col" style="text-align:center">
+                                                                    <div class="form-group" style="height: 100px; text-align:center; ">
                                                                         <div class="move_left icon" >
                                                                             <div id="move_left" class="arrow arrow_left"></div>
                                                                         </div>                                
                                                                     </div>
                                                                 </div>
-                                                                <div class="col">
-                                                                    <div class="form-group">
+                                                                <div class="col" style="text-align:center">
+                                                                    <div class="form-group" style="height: 100px;text-align:center; ">
                                                                         <div class="stop icon" >
                                                                             <div id="move_stop" class="circle">
                                                                                 <div id="stop_id" class="rectangle" class></div>
@@ -391,24 +409,24 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col">
-                                                                    <div class="form-group">
+                                                                <div class="col" style="text-align:center">
+                                                                    <div class="form-group" style="height: 100px;text-align:center; ">
                                                                         <div class="move_right icon" >
                                                                             <div id="move_right" class="arrow arrow_right"></div>
                                                                         </div> 
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-row"style="height: 100px;" >
-                                                                <div class="col">
-                                                                    <div class="form-group">
+                                                            <div class="form-row" style="height: 100px;">
+                                                                <div class="col" style="text-align:center">
+                                                                    <div class="form-group" style="height: 100px;text-align:center; ">
                                                                         <div class="move_backwards icon">
                                                                             <div id="move_backwards" class="arrow arrow_backwards"></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </form>
+                                                        <!-- </form> -->
                                                     </div>
                                                 </div>    
                                             </div>
@@ -416,48 +434,36 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-8">
-                                <div class="card shadow mb-4"style="height: 550px;">
-                                    <div class="card-body"style="height: 550px;">
-                                        <div class="chart-area"style="height: 500px;">
-                                            <h3>ROM</h3>
-                                            <!-- GRAPHS FOR ROM DATA -->
-                                            <div id="jointCharts" class="card shadow mb-4">
-                                                <div class="container-fluid">
-                                                    <br>
-                                                    <div class="row mb-3">
-                                                        <div class="col-lg-6">
-                                                            <div class="card mb-3">
-                                                                <div class="card-header d-flex justify-content-between align-items-center">
-                                                                    <h5 class="text-primary font-weight-bold m-0" style="width:100%;text-align: center;">Cadera Izquierda</h5>
-                                                                </div>
-                                                                <div class="card-body">
-                                                                    <div class="chart-area" >
-                                                                        <div id="LeftHip">
-                                                                            <canvas id="l_hip_chart"></canvas>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>    
-                                                        <div class="col-lg-6">
-                                                            <div class="card mb-3">
-                                                                <div class="card-header d-flex justify-content-between align-items-center">
-                                                                    <h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Cadera Derecha</h5>
-                                                                </div>
-                                                                <div class="card-body">
-                                                                    <div class="chart-area">
-                                                                        <div id="rightLeftHip">
-                                                                            <canvas id="r_hip_chart"></canvas>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            <div class="col-lg-5">
+                                <div class="card shadow mb-4"style="height: 350px;">
+                                    <div class="card-body"style="height: 350px;">
+                                        <div class="chart-area" style="height: 300px;">
+                                            <h3>Conexiones</h3>
+                                            <!-- Dos botones de SWalker y Delsys -->
+                                            <div class="mb-3 d-flex centered">
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <!-- Boton Swalker  -->
+                                                <button style="margin:5px; background: #808080; border-color: #0968e4" class="btn btn-primary " value="off" id="connect_swalker" type="submit"> Conectar SWalker </button>
+                                                <!-- Boton Delsys -->
+                                                <button class="btn btn-primary " value="off" id="enable_emg" type="submit" style="margin:5px; background: #808080; border-color: #0968e4"> Conectar Delsys </button>
+                                                <!-- NO SE QUE ES ESTO  -->
+                                                <button class="btn btn-primary " value="off" id="connect_BLE" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" > Test BLE </button>
                                             </div>
-                                        </div>   
+                                                    
+                                            <div class="mb-3 d-flex centered">
+                                                <!-- Boton VR -->
+                                                <button class="btn btn-primary " value="off" id="enable_vr" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4" disabled> VR Desconectado </button>
+                                                <!-- NO SE QUE ES ESTO  -->
+                                                <button class="btn btn-primary " value="off" id="juego1" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" disabled> Juego 1 </button>
+                                                <!-- NO SE QUE ES ESTO  -->
+                                                <button class="btn btn-primary " value="off" id="juego2" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" disabled> Juego 2 </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div> 
                             </div>    
@@ -466,65 +472,62 @@
                         <script src="move.js"></script>      
                     </div>
                     <br>
-                    <!-- PANEL DE Conexiones y vision VR-->
-                    <div class="container-fluid" style="height: 550px;">
-                        <div class="row" style="display: flex; justify-content: space-around; height: 400px;">
-                            <div class="col-lg-4">
-                                <div class="row" style="height: 350px;">
-                                    <div class="col">
-                                        <div class="card shadow mb-4"style="height: 350px;">
-                                            <div class="card-body"style="height: 350px;">
-                                                <div class="chart-area" style="height: 300px;">
-                                                    <h3>Conexiones</h3>
-                                                    <!-- Dos botones de SWalker y Delsys -->
-                                                    <div class="mb-3 d-flex centered">
-                                                        <br>
-                                                        <br>
-                                                        <br>
-                                                        <br>
-                                                        <br>
-                                                        <br>
-                                                        <!-- Boton Swalker  -->
-                                                        <button style="margin:5px; background: #808080; border-color: #0968e4" class="btn btn-primary " value="off" id="connect_swalker" type="submit"> Conectar SWalker </button>
-                                                        <!-- Boton Delsys -->
-                                                        <button class="btn btn-primary " value="off" id="enable_emg" type="submit" style="margin:5px; background: #808080; border-color: #0968e4"> Conectar Delsys </button>
-                                                        <!-- NO SE QUE ES ESTO  -->
-                                                        <button class="btn btn-primary " value="off" id="connect_BLE" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" > Test BLE </button>
+                    <div class="card shadow mb-4" style="height: 550px;">
+                        <div class="card-body" style="height: 550px;">
+                            <div class="chart-area" style="height: 550px;">
+                                <h3>ROM</h3>
+                                <!-- GRAPHS FOR ROM DATA -->
+                                <div id="jointCharts" class="card shadow mb-4">
+                                    <div class="container-fluid">
+                                        <br>
+                                        <div class="row mb-3">
+                                            <div class="col-lg-6">
+                                                <div class="card mb-3">
+                                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                                        <h5 class="text-primary font-weight-bold m-0" style="width:100%;text-align: center;">Cadera Izquierda</h5>
                                                     </div>
-                                                    
-                                                    <div class="mb-3 d-flex centered">
-                                                        <!-- Boton VR -->
-                                                        <button class="btn btn-primary " value="off" id="enable_vr" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4" disabled> VR Desconectado </button>
-                                                        <!-- NO SE QUE ES ESTO  -->
-                                                        <button class="btn btn-primary " value="off" id="juego1" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" disabled> Juego 1 </button>
-                                                        <!-- NO SE QUE ES ESTO  -->
-                                                        <button class="btn btn-primary " value="off" id="juego2" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" disabled> Juego 2 </button>
+                                                    <div class="card-body">
+                                                        <div class="chart-area" >
+                                                            <div id="LeftHip">
+                                                                <canvas id="l_hip_chart"></canvas>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                            <div class="col-lg-6">
+                                                <div class="card mb-3">
+                                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                                        <h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Cadera Derecha</h5>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="chart-area">
+                                                            <div id="rightLeftHip">
+                                                                <canvas id="r_hip_chart"></canvas>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="card shadow mb-4"style="height: 550px;">
-                                    <div class="card-body"style="height: 550px;">
-                                        <div class="chart-area"style="height: 500px;">
-                                            <h3>Vision Realidad Virtual</h3>
-                                            
-                                            <div id="jointCharts" class="card shadow mb-4">
-                                                <div class="container-fluid">
-                                                    <!-- Aqui dentro va la vision de realidad virtual-->
-                                                </div>
-                                            </div>
-                                        </div>   
-                                    </div>
-                                </div> 
-                            </div>    
-                        </div> 
-                        <script src="socket.io/socket.io.js"></script>
-                        <script src="move.js"></script>      
+                            </div>   
+                        </div>
                     </div>
+                    <!-- PANEL DE Vision VR-->
+                    <div class="card shadow mb-4"style="height: 550px;">
+                        <div class="card-body"style="height: 550px;">
+                            <div class="chart-area"style="height: 500px;">
+                                <h3>Vision Realidad Virtual</h3>
+                                <div id="jointCharts" class="card shadow mb-4">
+                                    <div class="container-fluid">
+                                        <!-- Aqui dentro va la vision de realidad virtual-->
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
+                    </div> 
                     <!-- TABS PARA LA NEVEGACION DE LAS DIFERENTES TABLAS-->
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">

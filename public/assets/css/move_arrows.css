@@ -9,8 +9,8 @@
 
 .move_left {
     position: absolute;
-    top: 45.8%;
-    left: 26%;
+    top: 10%;
+    left: 60%;
     transform: rotate(180deg);
     width: 100px;
     height: 25px;
@@ -19,8 +19,8 @@
 
 .move_right {
     position: absolute;
-    top: 47.8%;
-    left: 54.5%;
+    top: 13%;
+    right: 61%;
     transform: rotate(0deg);
     width: 100px;
     height: 25px;
@@ -28,8 +28,8 @@
 }
 .move_fordward {
     position: absolute;
-    top: 17%;
-    left: 40.4%;
+    top: 0%;
+    left: 41.5%;
     transform: rotate(270deg);
     width: 100px;
     height: 25px;
@@ -37,8 +37,8 @@
 }
 .move_backwards {
     position: absolute;
-    top: 77%;
-    left: 40%;
+    top: 35%;
+    left: 40.8%;
     transform: rotate(90deg);
     width: 100px;
     height: 25px;
@@ -78,8 +78,8 @@
 
 .stop {
     position: absolute;
-    top: 42%;
-    left: 43%;
+    top: 0%;
+    left: 34%;
     transform: rotate(0deg);
     width: 100px;
     height: 25px;
