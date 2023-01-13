@@ -9,6 +9,17 @@ var datatherapists={};
 
 var use_swalker_boolean;
 
+//** Global variables **//
+var THERAPY_MONITOR_GOTO_LINK;
+
+// SWalker variables 
+var rom_right;
+var rom_left;
+var load;
+var is_swalker_connected = false;
+var patient_weight = 1;
+
+
 
 socket.on('patientdata',function(datapatient){
     for (i = 0; i < datapatient.length; i++){
@@ -121,7 +132,7 @@ window.onload = function(){
         document.getElementById("pbws_value").innerHTML = pbws + "%";
     };
 	*/
-    
+
     // When the "save_settings" button is clicked, send all the configured parameters to the server 
     document.getElementById("save_settings").onclick = function() {
         // First click change colour
@@ -176,6 +187,235 @@ window.onload = function(){
       // Redirect to the therapy monitoring window
         location.replace("therapy_monitoring.html")
     });
+
+    socket.on("monitoring:jointData", (data) => {
+      is_swalker_connected = data.swalker_connection_status;
+      load = parseFloat(data.load);
+      rom_right = data.rom_right;
+      rom_left = data.rom_left;
+      emg_enabled = data.emg_connection_status;
+      emg_data = data.emg; // json
+      // Avoid errors in case EMG is not connected
+      if (
+        emg_data.length == 0 ||
+        JSON.parse(emg_data).filtered_emg == undefined ||
+        !emg_enabled
+      ) {
+        filtered_emg = [0, 0, 0, 0, 0, 0, 0, 0];
+        envelope_emg = [0, 0, 0, 0, 0, 0, 0, 0];
+      } else {
+        if (document.getElementById("enable_emg").value == "connecting") {
+          document.getElementById("enable_emg").value = "on";
+          document.getElementById("enable_emg").innerHTML = "Desconectar EMG";
+          document.getElementById("enable_emg").style.background = "#fd4e4e";
+        }
+        filtered_emg = JSON.parse(emg_data).filtered_emg;
+        envelope_emg = JSON.parse(emg_data).envelope_emg;
+        //console.log(envelope_emg)
+      }
+
+      if (therapy_reestart) {
+        // Initialize values when therapy reestarts
+        therapy_reestart = false;
+        emptyJointGraphs(); /////////////////////////////////////////////////////////////////////////////////// incomplete
+        empty_envelope_graphs();
+      }
+
+      // Hide/show legend and data.
+      if (
+        document.getElementById("connect_swalker").value == "on" &&
+        ctxrhipInstance.data.datasets[0].hidden == true
+      ) {
+        showDataset(ctxrhipInstance.data.datasets[0]);
+        showDataset(ctxlhipInstance.data.datasets[0]);
+        emptyJointGraphs();
+      }
+
+      // Keep the swalker button green and on while swalker is connected.
+      if (
+        (document.getElementById("connect_swalker").style.background !=
+          "#4eb14e") &
+        is_swalker_connected
+      ) {
+        document.getElementById("connect_swalker").value = "on";
+        document.getElementById("connect_swalker").innerHTML =
+          "Desconectar SWalker";
+        document.getElementById("connect_swalker").style.background = "#4eb14e";
+      }
+
+      if (is_swalker_connected) {
+        // show y axis label and ticks
+        //update supported weight
+        if (load < 0) {
+          load = 0.0;
+        } else if (load > 100) {
+          load = 100.0;
+        } else {
+          document.getElementById("supported_weight").innerHTML =
+            load.toFixed(2);
+        }
+
+        // update dataset rom values
+        ctxrhipInstance.data.datasets[0].data.push(rom_right);
+        ctxlhipInstance.data.datasets[0].data.push(rom_left);
+
+        // update labels
+        var segundos = Math.trunc(updateCounter_rom / 10);
+        var milisegundos = Math.trunc(
+          (updateCounter_rom / 10 - segundos) * 1000
+        );
+        var minutos = Math.trunc(segundos / 60);
+        segundos = segundos - minutos * 60;
+        if (Math.trunc(milisegundos).toString().length == 1) {
+          milisegundos = "00" + milisegundos;
+        } else if (Math.trunc(milisegundos).toString().length == 2) {
+          milisegundos = "0" + milisegundos;
+        } else if (Math.trunc(milisegundos).toString().length == 0) {
+          milisegundos = "000";
+        }
+        var label = minutos + "-" + segundos + "-" + milisegundos;
+
+        ctxlhipInstance.data.labels.push(label);
+        ctxrhipInstance.data.labels.push(label);
+
+        // delete first element to keep the graph in movement. PlotSampling data reception: 20Hz --> 2 segundos: 40muestras
+        if (updateCounter_rom > 49) {
+          ctxrhipInstance.data.labels.shift();
+          ctxlhipInstance.data.labels.shift();
+
+          // y_value
+          ctxrhipInstance.data.datasets[0].data.shift();
+          ctxlhipInstance.data.datasets[0].data.shift();
+        }
+      } else {
+        // ROM
+        ctxlhipInstance.data.labels = ["00:00", "00:01"];
+        ctxrhipInstance.data.labels = ["00:00", "00:01"];
+      }
+
+      // add data to envelope plots. This data will be shown either the therapy is started or not
+      if (rendered) {
+        //tab EMG envelope
+        if (emg_enabled) {
+          //console.log(updateCounter_right_envelope);
+          //update labels envelop
+          var segundos = Math.trunc(updateCounter_emg / 10);
+          var milisegundos = (updateCounter_emg / 10) * 1000 - segundos * 1000;
+          var minutos = Math.trunc(segundos / 60);
+          segundos = segundos - minutos * 60;
+
+          if (Math.trunc(milisegundos).toString().length == 1) {
+            milisegundos = "00" + milisegundos;
+          } else if (Math.trunc(milisegundos).toString().length == 2) {
+            milisegundos = "0" + milisegundos;
+          } else if (Math.trunc(milisegundos).toString().length == 0) {
+            milisegundos = "000";
+          }
+          var label = minutos + "-" + segundos + "-" + milisegundos;
+
+          ctxrfleftInstance.data.labels.push(label);
+          ctxrfrightInstance.data.labels.push(label);
+          ctxbfleftInstance.data.labels.push(label);
+          ctxbfrightInstance.data.labels.push(label);
+          ctxtarightInstance.data.labels.push(label);
+          ctxtaleftInstance.data.labels.push(label);
+          ctxgmleftInstance.data.labels.push(label);
+          ctxgmrightInstance.data.labels.push(label);
+
+          ctxrfrightInstance.data.datasets[0].data.push(envelope_emg[0] * 1000);
+          ctxbfrightInstance.data.datasets[0].data.push(envelope_emg[1] * 1000);
+          ctxtarightInstance.data.datasets[0].data.push(envelope_emg[2] * 1000);
+          ctxgmrightInstance.data.datasets[0].data.push(envelope_emg[3] * 1000);
+          ctxrfleftInstance.data.datasets[0].data.push(envelope_emg[4] * 1000);
+          ctxbfleftInstance.data.datasets[0].data.push(envelope_emg[5] * 1000);
+          ctxtaleftInstance.data.datasets[0].data.push(envelope_emg[6] * 1000);
+          ctxgmleftInstance.data.datasets[0].data.push(envelope_emg[7] * 1000);
+
+          if (updateCounter_emg > 49) {
+            ctxrfleftInstance.data.labels.shift();
+            ctxrfrightInstance.data.labels.shift();
+            ctxbfrightInstance.data.labels.shift();
+            ctxbfleftInstance.data.labels.shift();
+            ctxtaleftInstance.data.labels.shift();
+            ctxtarightInstance.data.labels.shift();
+            ctxgmrightInstance.data.labels.shift();
+            ctxgmleftInstance.data.labels.shift();
+
+            ctxrfleftInstance.data.datasets[0].data.shift();
+            ctxrfrightInstance.data.datasets[0].data.shift();
+            ctxbfleftInstance.data.datasets[0].data.shift();
+            ctxbfrightInstance.data.datasets[0].data.shift();
+            ctxtarightInstance.data.datasets[0].data.shift();
+            ctxtaleftInstance.data.datasets[0].data.shift();
+            ctxgmleftInstance.data.datasets[0].data.shift();
+            ctxgmrightInstance.data.datasets[0].data.shift();
+          }
+        } else {
+          ctxrfleftInstance.data.labels = ["00:00", "00:01"];
+          ctxrfrightInstance.data.labels = ["00:00", "00:01"];
+          ctxbfleftInstance.data.labels = ["00:00", "00:01"];
+          ctxbfrightInstance.data.labels = ["00:00", "00:01"];
+          ctxtaleftInstance.data.labels = ["00:00", "00:01"];
+          ctxtarightInstance.data.labels = ["00:00", "00:01"];
+          ctxgmleftInstance.data.labels = ["00:00", "00:01"];
+          ctxgmrightInstance.data.labels = ["00:00", "00:01"];
+        }
+      }
+
+      //// update counters and refresh graphs
+      ///////////////////////////////////////
+      updateCounter_rom++;
+
+      // ROM
+      ctxrhipInstance.update();
+      ctxlhipInstance.update();
+
+      //EMG
+      if (rendered) {
+        updateCounter_emg++;
+
+        ctxrfleftInstance.update();
+        ctxrfrightInstance.update();
+        ctxbfleftInstance.update();
+        ctxbfrightInstance.update();
+        ctxtaleftInstance.update();
+        ctxtarightInstance.update();
+        ctxgmleftInstance.update();
+        ctxgmrightInstance.update();
+      }
+    });
+    
+    document.getElementById("connect_swalker").onclick = function () {
+      // Start emg connection
+      console.log(document.getElementById("connect_swalker").value);
+      if (document.getElementById("connect_swalker").value == "off") {
+        document.getElementById("connect_swalker").value = "connecting";
+        document.getElementById("connect_swalker").style.background = "#808080";
+        document.getElementById("connect_swalker").innerHTML = "Conectando...";
+        socket.emit("monitoring:connect_swalker");
+
+        // Stop emg_connection
+      } else if (document.getElementById("connect_swalker").value == "on") {
+        console.log("clicked and swalker value on, should be disconnected");
+        document.getElementById("connect_swalker").value = "off";
+        document.getElementById("connect_swalker").innerHTML =
+          "Conectar SWalker";
+        document.getElementById("connect_swalker").style.background = "#808080";
+        socket.emit("monitoring:disconnect_swalker");
+        emptyJointGraphs();
+        empty_envelope_graphs();
+      } else if (
+        document.getElementById("connect_swalker").value == "connecting"
+      ) {
+        document.getElementById("connect_swalker").value = "off";
+        document.getElementById("connect_swalker").innerHTML =
+          "Conectar SWalker";
+        document.getElementById("connect_swalker").style.background = "#eb0a0a";
+        socket.emit("monitoring:disconnect_swalker");
+        emptyJointGraphs();
+        empty_envelope_graphs();
+      }
+    };
 };
 
 function setGaitVelocity(selectObject) {
