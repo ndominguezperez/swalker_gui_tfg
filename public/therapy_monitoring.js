@@ -1110,19 +1110,6 @@ function preventChange() {
 	$("#modal-change-page").modal('show');
 };
 
-var start_stop_time=false;
-var segundos=0;
-
-function start_stop_time(start_stop_time){
-	document.getElementById("time_passed").innerHTML=segundos;
-	if(start_stop_time==true){
-		segundos++;
-		setTimeout(start_stop_time(start_stop_time),1000);
-	}else{
-		segundos=0;
-	}
-}
-
 
  // Stop therapy in case of window reunload
 window.onbeforeunload = function() {
@@ -1259,7 +1246,7 @@ function selectGaitSpeed(selectObject) {
 
 // CONTADOR 
 
-empezado = false;
+var empezado = false;
 
 document.getElementById("etiempo").onclick = function () {
 	console.log("Recibido el click de empezar");
@@ -1272,10 +1259,12 @@ document.getElementById("ttiempo").onclick = function () {
 };
 
 // CONTADOR
-let minutos = 0;
-let segundos = 0;
+var minutos = 0;
+var segundos = 0;
 function setTimer(empezado) {
 	if (empezado == true) {
+		segundos=0;
+		minutos=0;
 		cargarSegundo(empezado);
 	} else {
     cargarSegundo(empezado);
