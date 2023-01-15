@@ -1257,21 +1257,12 @@ function selectGaitSpeed(selectObject) {
 	console.log(gait_velocity)
 }
 
-document.getElementById("etiempo").onclick = function () {
-	console.log("Recibido el click de empezar");
-	empezado = true;
-	setTimer(empezado);
-};
-document.getElementById("ttiempo").onclick = function () {
-	empezado = false;
-	setTimer(empezado);
-};
-
 // CONTADOR 
 
 empezado = false;
 
 document.getElementById("etiempo").onclick = function () {
+	console.log("Recibido el click de empezar");
 	empezado = true;
 	setTimer(empezado);
 };
