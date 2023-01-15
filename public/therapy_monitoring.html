@@ -27,7 +27,7 @@
 
 <body id="page-top">
     <div id="wrapper">
-            <!-- Start Modal if click to change to other page  -->
+        <!-- Start Modal if click to change to other page  -->
         <div id="modal-change-page" class="modal fade" role = "dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -317,11 +317,15 @@
                                                             <strong>Duracion</strong>
                                                         </label>
                                                         <div class="mb-3 d-flex centered">
-                                                            <button class="btn btn-outline-secondary" type="button" id="supported_weight" value="10"> 0.00 </button>
+                                                            <button class="btn btn-outline-secondary" type="button" id="time_passed" > 
+                                                                <div id="minutos" style="display: inline;">00 : </div>
+                                                                <div id="segundos" style="display: inline;">00 </div>
+                                                            </button>
+                                                            <button class="btn btn-primary " id="etiempo" >E</button>
+                                                            <button class="btn btn-primary " id="ttiempo" >T</button>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
                                             </div>
                                         </form>
                                     </div>
@@ -345,7 +349,7 @@
                     <div class="mb-3 d-flex centered" style="padding-left:400px; padding-right:400px">
 						<input class="form-control" style= "margin:5px; display:none" id="observations" type="text" placeholder="Escriba aquí los comentarios de la sesión...">
 					</div>
-
+                    
 
                     <!-- Joint Charts-->
                     <!-- PANEL DE DIRECCION y CONEXIONES -->
@@ -597,6 +601,7 @@
                         </div>
                     </div>
                     <!-- TRES BOTONES SUPER PUESTOS PARA DIFERENTES COSAS? AL EJECUTAR UNO FUNCIONAN TODOS? -->
+
                     <div class="mb-3 d-flex centered" >
                         
 						<button class="btn btn-primary " value="start_position" id="save_data" type="submit" style="margin:5px; background: #fd4e4e; border-color: #fd4e4e; display:none">Guardar datos</button>

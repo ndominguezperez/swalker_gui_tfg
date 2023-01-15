@@ -1102,12 +1102,26 @@ window.onload = function() {
 		ctxlhipInstance.data.datasets[0].data = [];
 		
 	}
+
 };
 
 // Show modal if click on change page
 function preventChange() {
 	$("#modal-change-page").modal('show');
- };
+};
+
+var start_stop_time=false;
+var segundos=0;
+
+function start_stop_time(start_stop_time){
+	document.getElementById("time_passed").innerHTML=segundos;
+	if(start_stop_time==true){
+		segundos++;
+		setTimeout(start_stop_time(start_stop_time),1000);
+	}else{
+		segundos=0;
+	}
+}
 
 
  // Stop therapy in case of window reunload
@@ -1242,6 +1256,83 @@ function selectGaitSpeed(selectObject) {
 	});
 	console.log(gait_velocity)
 }
+
+document.getElementById("etiempo").onclick = function () {
+	console.log("Recibido el click de empezar");
+	empezado = true;
+	setTimer(empezado);
+};
+document.getElementById("ttiempo").onclick = function () {
+	empezado = false;
+	setTimer(empezado);
+};
+
+// CONTADOR 
+
+empezado = false;
+
+document.getElementById("etiempo").onclick = function () {
+	empezado = true;
+	setTimer(empezado);
+};
+document.getElementById("ttiempo").onclick = function () {
+	empezado = false;
+	setTimer(empezado);
+};
+
+// CONTADOR
+let minutos = 0;
+let segundos = 0;
+function setTimer(empezado) {
+	if (empezado == true) {
+		cargarSegundo(empezado);
+	} else {
+    cargarSegundo(empezado);
+	}
+}
+
+//Segundos
+function cargarSegundo() {
+	let txtSegundos;
+	if (segundos > 59) {
+		segundos = 0;
+	}
+	//mostar los segundos por pantalla
+	if (segundos < 10) {
+		txtSegundos = `0${segundos}`;
+	} else {
+    txtSegundos = segundos;
+	}
+	if (empezado == true) {
+    document.getElementById("segundos").innerHTML = " : " + txtSegundos;
+    segundos++;
+    cargarMinutos(segundos);
+	} else {
+    return;
+	}
+}
+
+//Minutos
+function cargarMinutos(segundos) {
+	let txtMinutos;
+
+	if (segundos == 60 && minutos !== 59) {
+		setTimeout(() => {minutos++;}, 500);
+	} else if (segundos == 60 && minutos == 59) {
+    setTimeout(() => {minutos = 0;}, 500);
+	}
+	//mostrar minutos en pantalla
+	if (minutos < 10) {
+	txtMinutos = `0${minutos}`;
+	} else {
+		txtMinutos = minutos;
+	}
+	document.getElementById("minutos").innerHTML = txtMinutos;
+}
+
+//Ejecutamos cada segundo
+setInterval(cargarSegundo, 1000);
+
 
 
 
