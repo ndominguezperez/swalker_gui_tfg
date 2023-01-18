@@ -1325,14 +1325,14 @@ function selectGaitSpeed(selectObject) {
     socket.emit("monitoring:updateTherapySpeed", {
 		speed: gait_velocity
 	});
-	console.log(gait_velocity)
+	console.log("Gait Velocity en funcion selectGaitSpeed"+gait_velocity)
 }
 function selectSupportedWeigth(selectObject) {
   var pbws = selectObject.value;
   socket.emit("monitoring:updateSupportedWeigth", {
     supportedWeigh: pbws,
   });
-  console.log(pbws);
+  console.log("Porcentaje de peso soportado en selectSupportedWeigth" +pbws);
 }
 
 
