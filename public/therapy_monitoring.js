@@ -1107,6 +1107,10 @@ window.onload = function() {
     ctxlhipInstance.data.datasets[0].data = [];
   }
 
+  document.getElementById("supported_weight").innerHTML =document.getElementById("pbws").value;
+
+};
+
   // CONTADOR
 
   var empezado = false;
@@ -1179,7 +1183,6 @@ window.onload = function() {
 
   //Ejecutamos cada segundo
   setInterval(cargarSegundo, 1000);
-};
 
 // Show modal if click on change page
 function preventChange() {
@@ -1319,6 +1322,7 @@ function selectGaitSpeed(selectObject) {
 	});
 	console.log(gait_velocity)
 }
+
 
 
 
