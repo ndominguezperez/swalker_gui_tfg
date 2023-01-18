@@ -1208,8 +1208,8 @@ socket.on('monitoring:show_therapy_settings', (data) => {
   document.getElementById("supported_weight").innerHTML = data.PBWS_value;
 	document.getElementById("Weight").innerHTML =  data.patient_weight; 
 	document.getElementById("LegLength").innerHTML =  data.leg_length;
-	console.log(data.gait_velocity)
-  console.log(data.PBWS_value)
+	console.log("Gait Velocity: "+ data.gait_velocity)
+  console.log("Supported weight" +data.PBWS_value)
 	
 	var selects = document.getElementById("select_speed");
 	selects.value = data.gait_velocity;
