@@ -1205,6 +1205,7 @@ socket.on('monitoring:show_therapy_settings', (data) => {
 	document.getElementById("patient").innerHTML =  data.patient_name;
 	document.getElementById("age").innerHTML =  data.patient_age;
 	document.getElementById("gait_velocity").innerHTML = data.gait_velocity;
+  document.getElementById("supported_weight").innerHTML = data.PBWS_value;
 	document.getElementById("Weight").innerHTML =  data.patient_weight; 
 	document.getElementById("LegLength").innerHTML =  data.leg_length;
 	console.log(data.gait_velocity)
