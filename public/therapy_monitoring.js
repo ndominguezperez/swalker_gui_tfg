@@ -1209,9 +1209,13 @@ socket.on('monitoring:show_therapy_settings', (data) => {
 	document.getElementById("Weight").innerHTML =  data.patient_weight; 
 	document.getElementById("LegLength").innerHTML =  data.leg_length;
 	console.log(data.gait_velocity)
+  console.log(data.PBWS_value)
 	
-	var select = document.getElementById("select_speed");
-	select.value = data.gait_velocity;
+	var selects = document.getElementById("select_speed");
+	selects.value = data.gait_velocity;
+
+  var selectw = document.getElementById("select_suppWeigh");
+  selectw.value = data.PBWS_value;
 	
 });
 
@@ -1322,6 +1326,13 @@ function selectGaitSpeed(selectObject) {
 		speed: gait_velocity
 	});
 	console.log(gait_velocity)
+}
+function selectSupportedWeigth(selectObject) {
+  var pbws = selectObject.value;
+  socket.emit("monitoring:updateSupportedWeigth", {
+    supportedWeigh: pbws,
+  });
+  console.log(pbws);
 }
 
 

@@ -275,8 +275,14 @@
                                                         <label style="text-align: center;">
                                                             <strong>Peso Soportado (%)</strong>
                                                         </label>
-                                                        <div class="mb-3 d-flex centered">
-                                                            <button class="btn btn-outline-secondary" type="button" id="supported_weight" value="10"> 0.00 </button>
+                                                        <div class="mb-3 d-flex centered" style="text-align: center;">
+                                                            <select class="btn  btn-primary" id="supported_weight" class="form-control" onchange="selectSupportedWeigth(this)" >
+                                                                <option selected value="0">0%</option>
+                                                                <option value="25">25%</option>
+                                                                <option value="50">50%</option>
+                                                                <option value="50">75%</option>
+                                                                <option value="50">100%</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
