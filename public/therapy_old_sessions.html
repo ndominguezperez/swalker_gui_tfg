@@ -80,13 +80,12 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html" style="display:none;"><i class="fas fa-arrow-left"></i><span> Página de inicio </span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-home"></i><span> Bienvenida </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="patients_menu.html"><i class="fas fa-child"></i><span>  Pacientes  </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="therapists_menu.html"><i class="fas fa-user-nurse"></i><span> Terapeutas  </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="therapy_menu.html"><i class="fas fa-clinic-medical"></i><span> <u> Terapia </u> </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="tutorials.html"><i class="fas fa-book-open"></i><span> Tutoriales </span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-info"></i><span>  Ayuda </span></a></li>
                 </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
         </nav>
         <div class="d-flex flex-column" id="content-wrapper">
@@ -167,6 +166,7 @@
                             </div> 
                         
                             <!-- Modal Download Individual Session Data -->
+                            <!--
                             <div class="modal fade" id="modaldownloadsessiondata" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -186,7 +186,7 @@
                                 </div>
                                 </div>
                             </div> 
-                            
+                            -->
                             <!-- Modal Download All Sessions Data -->
                             <div class="modal fade" id="modaldownloadallsessionsdata" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -342,8 +342,8 @@
                             <div class="container-fluid" style="padding:50px;">
                                 <div id="toolbar" style="text-align: center;">
                                     <button id="remove_session" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldeletedsession"  disabled><i class="fas fa-user-times"></i> Eliminar Sesión</button>
-                                    <button id="download_sessions_config" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadsessionscofiguration" disabled><i class="fas fa-download"></i>  Descargar Configuración De Sesiones</button> 
-                                    <button id="download_session_data" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadsessiondata" disabled><i class="fas fa-download"></i>  Descargar Sesión</button> 
+                                    <button id="download_sessions_config" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadsessionscofiguration" disabled><i class="fas fa-download"></i>  Descargar Sesión</button> 
+                                    <!--<button id="download_session_data" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadsessiondata" disabled><i class="fas fa-download"></i>  Descargar Sesión</button>  -->
                                     <button id="view_session" type="button" class="btn btn-outline-primary" disabled><i class="fas fa-search"></i> Visualizar Sesión</button> 
                                     <button id="download_all_sessions_data" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadallsessionsdata" style="display:none"><i class="fas fa-download"></i>  Descargar Todas las Sesiones</button> 
                                 </div>
@@ -364,11 +364,12 @@
                                                     <input type="checkbox" />
                                                 </th>
                                                 <th scope="col">ID</th>
-                                                <th scope="col">Fecha De Sesión</th> 
-                                                <th scope="col">Nombre Del Paciente</th>
-                                                <th scope="col">Apellido Del Paciente</th>
+                                                <th scope="col">Fecha </th> 
+                                                <th scope="col">Nombre del paciente</th>
+                                                <th scope="col">Apellido de paciente</th>
+                                                <th scope="col">Terapeuta </th>
                                                 <th scope="col">Sesión</th>
-                                                <th scope="col">Velocidad SWalkerII</th>
+                                                <th scope="col">Velocidad </th>
                                                 <th scope="col">Observaciones</th>
                                             </tr>
                                         </thead>

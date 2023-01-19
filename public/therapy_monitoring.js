@@ -764,6 +764,7 @@ window.onload = function() {
       document.getElementById("connect_BLE").value = "off";
       document.getElementById("connect_BLE").innerHTML = "Conectar BLE";
       socket.emit("monitoring:disconnect_BLE");
+
     } else if (document.getElementById("connect_BLE").value == "connecting") {
       document.getElementById("connect_BLE").value = "off";
       document.getElementById("connect_BLE").innerHTML = "Conectar BLE";
@@ -833,7 +834,7 @@ window.onload = function() {
             document.getElementById("save_data").style.display = "none";
             document.getElementById("observations_div").style.display = "block";
             document.getElementById("start_stop").value = "start";
-            document.getElementById("start_stop").innerHTML = "START";
+            //document.getElementById("start_stop").innerHTML = "START";
             document.getElementById("start_stop").style.background = "#09c768";
             document.getElementById("start_stop").style.borderColor = "#09c768";
           } else {
@@ -847,7 +848,7 @@ window.onload = function() {
                 clearInterval(myTimer);
                 document.getElementById("save_data").style.display = "none";
                 document.getElementById("start_stop").value = "start";
-                document.getElementById("start_stop").innerHTML = "START";
+                //document.getElementById("start_stop").innerHTML = "START";
                 document.getElementById("start_stop").style.background =
                   "#09c768";
                 document.getElementById("start_stop").style.borderColor =
@@ -866,31 +867,56 @@ window.onload = function() {
         socket.emit("monitoring:start");
         document.getElementById("save_data").style.display = "none";
         document.getElementById("start_stop").value = "stop";
-        document.getElementById("start_stop").innerHTML = "STOP";
+        document.getElementById("start_stop").innerHTML = "Terminar";
         document.getElementById("start_stop").style.background = "#fd4e4e";
         document.getElementById("start_stop").style.borderColor = "#fd4e4e";
         therapy_started = true;
         therapy_reestart = true;
+        empezado = true;
+        setTimer(empezado);
       } else if (document.getElementById("start_stop").value == "stop") {
         document.getElementById("save_data").value = "not_saved";
         document.getElementById("save_data").innerHTML = "Guardar";
         document.getElementById("save_data").style.background = "#fd4e4e";
         document.getElementById("save_data").style.display = "block";
         document.getElementById("start_stop").value = "start_calibration";
-        document.getElementById("start_stop").innerHTML = "NUEVA TERAPIA";
+        document.getElementById("start_stop").innerHTML = "Empezar";
         document.getElementById("start_stop").style.background = "#0968e4";
         document.getElementById("start_stop").style.borderColor = "#0968e4";
         therapy_started = false;
+        empezado = false;
+        setTimer(empezado);
         socket.emit("monitoring:stop");
         emptyJointGraphs();
         empty_envelope_graphs();
         document.getElementById("calibrate").style.display = "none";
+
+        //Al darle a finalizar la terapia, guardar los datos
+        if (document.getElementById("save_data").value == "not_saved") {
+          // Change button style
+          document.getElementById("save_data").value = "Saving...";
+          document.getElementById("save_data").innerHTML = "Datos Guardados";
+          document.getElementById("save_data").style.background = "#0968e4";
+          document.getElementById("save_data").style.display = "none";
+          document.getElementById("observations_div").style.display = "none";
+
+          //update config therapy json (add observations)
+          let obs = document.getElementById("observations").value;
+          socket.emit("monitoring:save_settings", obs);
+
+          is_dataRecorded = false;
+
+          // Save configurtion
+          socket.emit("addsesiondata");
+          socket.emit("monitoring:save_emg");
+          // Obtain gait therapy information
+        }
       }
     } else {
       console.log("no device connected");
       $("#modaltherapyadvice").modal("show");
     }
-  };
+  }
 
   // Start stop interaction
   document.getElementById("save_data").onclick = function () {
@@ -1107,82 +1133,10 @@ window.onload = function() {
     ctxlhipInstance.data.datasets[0].data = [];
   }
 
-  document.getElementById("supported_weight").innerHTML =document.getElementById("pbws").value;
 
 };
 
-  // CONTADOR
 
-  var empezado = false;
-
-  document.getElementById("etiempo").onclick = function () {
-    console.log("Recibido el click de empezar");
-    empezado = true;
-    setTimer(empezado);
-  };
-  document.getElementById("ttiempo").onclick = function () {
-    empezado = false;
-    setTimer(empezado);
-  };
-
-  // CONTADOR
-  var minutos = 0;
-  var segundos = 0;
-  function setTimer(empezado) {
-    if (empezado == true) {
-      segundos = 0;
-      minutos = 0;
-      cargarSegundo(empezado);
-    } else {
-      cargarSegundo(empezado);
-    }
-  }
-
-  //Segundos
-  function cargarSegundo() {
-    let txtSegundos;
-    if (segundos > 59) {
-      segundos = 0;
-    }
-    //mostar los segundos por pantalla
-    if (segundos < 10) {
-      txtSegundos = `0${segundos}`;
-    } else {
-      txtSegundos = segundos;
-    }
-    if (empezado == true) {
-      document.getElementById("segundos").innerHTML = " : " + txtSegundos;
-      segundos++;
-      cargarMinutos(segundos);
-    } else {
-      return;
-    }
-  }
-
-  //Minutos
-  function cargarMinutos(segundos) {
-    let txtMinutos;
-
-    if (segundos == 60 && minutos !== 59) {
-      setTimeout(() => {
-        minutos++;
-      }, 500);
-    } else if (segundos == 60 && minutos == 59) {
-      setTimeout(() => {
-        minutos = 0;
-      }, 500);
-    }
-    //mostrar minutos en pantalla
-    if (minutos < 10) {
-      txtMinutos = `0${minutos}`;
-    } else {
-      txtMinutos = minutos;
-    }
-    document.getElementById("minutos").innerHTML = txtMinutos;
-  }
-
-  //Ejecutamos cada segundo
-  setInterval(cargarSegundo, 1000);
 
 // Show modal if click on change page
 function preventChange() {
@@ -1205,18 +1159,14 @@ socket.on('monitoring:show_therapy_settings', (data) => {
 	document.getElementById("patient").innerHTML =  data.patient_name;
 	document.getElementById("age").innerHTML =  data.patient_age;
 	document.getElementById("gait_velocity").innerHTML = data.gait_velocity;
-  document.getElementById("supported_weight").innerHTML = data.PBWS_value;
-  document.getElementById("supported_weight").innerHTML = data.pbws + "%";
 	document.getElementById("Weight").innerHTML =  data.patient_weight; 
 	document.getElementById("LegLength").innerHTML =  data.leg_length;
 	console.log("Gait Velocity: "+ data.gait_velocity)
-  console.log("Supported weight" +data.PBWS_value)
 	
-	var selects = document.getElementById("select_speed");
-	selects.value = data.gait_velocity;
+	var select = document.getElementById("select_speed");
+	select.value = data.gait_velocity;
 
-  var selectw = document.getElementById("select_suppWeigh");
-  selectw.value = data.PBWS_value;
+
 	
 });
 
@@ -1328,13 +1278,80 @@ function selectGaitSpeed(selectObject) {
 	});
 	console.log("Gait Velocity en funcion selectGaitSpeed"+gait_velocity)
 }
-function selectSupportedWeigth(selectObject) {
-  var pbws = selectObject.value;
-  socket.emit("monitoring:updateSupportedWeigth", {
-    supportedWeigh: pbws,
-  });
-  console.log("Porcentaje de peso soportado en selectSupportedWeigth" +pbws);
-}
+
+  // CONTADOR
+
+  var empezado = false;
+/*
+  document.getElementById("etiempo").onclick = function () {
+    console.log("Recibido el click de empezar");
+    empezado = true;
+    setTimer(empezado);
+  };
+  document.getElementById("ttiempo").onclick = function () {
+    empezado = false;
+    setTimer(empezado);
+  };
+*/
+  var minutos = 0;
+  var segundos = 0;
+  function setTimer(empezado) {
+    if (empezado == true) {
+      segundos = 0;
+      minutos = 0;
+      cargarSegundo(empezado);
+    } else {
+      cargarSegundo(empezado);
+    }
+  }
+
+  //Segundos
+  function cargarSegundo() {
+    let txtSegundos;
+    if (segundos > 59) {
+      segundos = 0;
+    }
+    //mostar los segundos por pantalla
+    if (segundos < 10) {
+      txtSegundos = `0${segundos}`;
+    } else {
+      txtSegundos = segundos;
+    }
+    if (empezado == true) {
+      document.getElementById("segundos").innerHTML = " : " + txtSegundos;
+      segundos++;
+      cargarMinutos(segundos);
+    } else {
+      return;
+    }
+  }
+
+  //Minutos
+  function cargarMinutos(segundos) {
+    let txtMinutos;
+
+    if (segundos == 60 && minutos !== 59) {
+      setTimeout(() => {
+        minutos++;
+      }, 500);
+    } else if (segundos == 60 && minutos == 59) {
+      setTimeout(() => {
+        minutos = 0;
+      }, 500);
+    }
+    //mostrar minutos en pantalla
+    if (minutos < 10) {
+      txtMinutos = `0${minutos}`;
+    } else {
+      txtMinutos = minutos;
+    }
+    document.getElementById("minutos").innerHTML = txtMinutos;
+  }
+
+  //Ejecutamos cada segundo
+  setInterval(cargarSegundo, 1000);
+
+
 
 
 

@@ -320,6 +320,7 @@ socket.on('datostabla', function(datas) {
 				{ data: 'date' },
 				{ data: 'NombrePaciente' },
 				{ data: 'ApellidoPaciente'},
+        { data: 'NombreTerapeuta'},
 				{ data: 'NumberSession'},
 				{ data: 'gait_velocity'},
 				{ data: 'observations'}
@@ -441,7 +442,7 @@ socket.on('patientdata',function(datapatient){
 			  { data: 'patiente_weight'},
 			  { data: 'patient_height'},
 			  { data: 'leg_length'},
-			  { data: 'patient_active_rom'},
+			  //{ data: 'patient_active_rom'},
 			  { data: 'hip_joint'},
 			  { data: 'surgery'},
 			  { data: 'estado_fisico'},
@@ -464,7 +465,7 @@ socket.on('patientdata',function(datapatient){
 			'patiente_weight': datapatient[i].patiente_weight,
 			'patient_height': datapatient[i].patient_height,
 			'leg_length': datapatient[i].leg_length,
-			'patient_active_rom': datapatient[i].patient_active_rom,
+			//'patient_active_rom': datapatient[i].patient_active_rom,
 			'estado_fisico': datapatient[i].estado_fisico,
 			'estado_cognitivo': datapatient[i].estado_cognitivo,
 			'surgery': datapatient[i].surgery,
@@ -507,7 +508,7 @@ socket.on('patientdata',function(datapatient){
       let patestadofisico = document.getElementById("estado_fisico").value;
       let patestadocognitivo = document.getElementById("estado_cognitivo").value;
       let patheight = document.getElementById("HeightPatient").value;
-      let patmaxActiveRom = document.getElementById("activeRom").value;
+      //let patmaxActiveRom = document.getElementById("activeRom").value;
       let patgender = document.getElementById("gender").value;
       
       if (!patient_added){
@@ -570,7 +571,7 @@ socket.on('patientdata',function(datapatient){
       document.getElementById("editestado_fisico").value =  checkeds[0].estado_fisico;
       document.getElementById("editestado_cognitivo").value =  checkeds[0].estado_cognitivo;
       document.getElementById("editHeightPatient").value =  checkeds[0].patient_height;
-      document.getElementById("editActiveRom").value =  checkeds[0].patient_active_rom;
+      //document.getElementById("editActiveRom").value =  checkeds[0].patient_active_rom;
       document.getElementById("editGender").value =  checkeds[0].patient_gender;
  
     })
@@ -599,7 +600,7 @@ socket.on('patientdata',function(datapatient){
       checkeds[0].estado_cognitivo = document.getElementById("editestado_cognitivo").value;
       checkeds[0].patient_height = document.getElementById("editHeightPatient").value;
       checkeds[0].patient_gender = document.getElementById("editGender").value;
-      checkeds[0].max_active_rom = document.getElementById("editActiveRom").value;
+      //checkeds[0].max_active_rom = document.getElementById("editActiveRom").value;
       
 
       dt.row(indexrow).remove().draw();
@@ -609,10 +610,10 @@ socket.on('patientdata',function(datapatient){
         'ApellidoPaciente': checkeds[0].ApellidoPaciente,
         'patiente_age': checkeds[0].patiente_age,
         'patient_gender': checkeds[0].patient_gender,
-	    'patiente_weight': checkeds[0].patiente_weight,
-	    'patient_height': checkeds[0].patient_height,
-	    'leg_length': checkeds[0].leg_length,
-	    'patient_active_rom': checkeds[0].patient_active_rom,
+        'patiente_weight': checkeds[0].patiente_weight,
+        'patient_height': checkeds[0].patient_height,
+        'leg_length': checkeds[0].leg_length,
+	      //'patient_active_rom': checkeds[0].patient_active_rom,
         'estado_fisico': checkeds[0].estado_fisico,
         'estado_cognitivo': checkeds[0].estado_cognitivo,
         'surgery': checkeds[0].surgery,

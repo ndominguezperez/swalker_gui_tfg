@@ -171,16 +171,15 @@ window.onload = function(){
                 leg_length: document.getElementById("leg_length").value,
                 use_swalker: use_swalker_boolean,
                 gait_velocity: document.getElementById("velocity_value").value,
-                pbws: document.getElementById("PBWS_value").value,
-                //pbws: "0",
+                pbws: "0",
                 //observations: document.getElementById("observations").value,
             });
             if (use_swalker_boolean){
                 $("#modaltransferpatient").modal('show');
             } else {
-				// Redirect to the therapy monitoring window
-				location.replace("therapy_monitoring.html")
-			}
+				    // Redirect to the therapy monitoring window
+            location.replace("therapy_monitoring.html")
+          }
         }
     };
     $('#b_ok').on('click', function() {
@@ -432,21 +431,7 @@ function setGaitVelocity(selectObject) {
     }
  
 }
-function setPBWS(selectObject) {
-    var pbws= selectObject.value;
-    console.log(pbws);
-    if (pbws == "0") {
-        document.getElementById("pbws_value").innerHTML = "0%";
-    } else if (pbws == "25") {
-        document.getElementById("pbws_value").innerHTML = "25%";
-    } else if (pbws == "50") {
-        document.getElementById("pbws_value").innerHTML = "50%";
-    } else if (pbws == "75") {
-        document.getElementById("pbws_value").innerHTML = "75%";
-    } else if (pbws == "100") {
-        document.getElementById("pbws_value").innerHTML = "100%";
-    }
-}
+
 
 
 function setUseSwalkerBoolean(selectObject) {

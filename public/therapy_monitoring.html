@@ -113,13 +113,12 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html" style="display:none;"><i class="fas fa-arrow-left"></i><span> Página de inicio </span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-home"></i><span> Bienvenida </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="patients_menu.html"><i class="fas fa-child"></i><span> Pacientes </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="therapists_menu.html"><i class="fas fa-user-nurse"></i><span> Terapeutas</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="therapy_menu.html"><i class="fas fa-clinic-medical"></i><span> <u> Terapia </u> </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="tutorials.html"><i class="fas fa-book-open"></i><span> Tutoriales </span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-info"></i><span>  Ayuda </span></a></li>
                 </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
         </nav>
 
@@ -273,11 +272,10 @@
                                                 <div class="col" style="text-align: center;">
                                                     <div class="form-group" style="text-align: center;">
                                                         <label style="text-align: center;">
-                                                            <strong>Peso Soportado </strong>
+                                                            <strong>Peso Soportado (%) </strong>
                                                         </label>
                                                         <div class="mb-3 d-flex centered">
-                                                            <button class="btn btn-outline-secondary" type="button" id="supported_weight" onchange="selectSupportedWeigth(this)" >0</button>
-                                                            <!-- <button class="btn btn-outline-secondary" type="button" id="supported_weight" value="10"> 0.00 </button>-->
+                                                            <button class="btn btn-outline-secondary" type="button" id="supported_weight" value="10"> 0.00 </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -324,8 +322,10 @@
                                                                 <div id="minutos" style="display: inline;">00 : </div>
                                                                 <div id="segundos" style="display: inline;">00 </div>
                                                             </button>
+                                                            <!---
                                                             <button class="btn btn-primary " id="etiempo" >E</button>
                                                             <button class="btn btn-primary " id="ttiempo" >T</button>
+                                                            ->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -365,27 +365,9 @@
                                             <div class="card-body" style="height: 500px;">
                                                 <div class="chart-area" style="height: 450px;">
                                                     <div class="mb-3 d-flex justify-content-between ">
-                                                        <div class="col-lg-8">
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <div class="card-body">
-                                                                        <h3>Seleccione una dirección:</h3>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4">
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <div class="card-body">
-                                                                        
-                                                                            <!-- Boton STOP  -->
-                                                                            <h3 class="btn btn-secondary" id="direction_html" style="width: 150px;">Stop</h3>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>    
+                                                        <div class="card-body">
+                                                            <h3>Seleccione una dirección:</h3>
+                                                        </div>            
                                                     </div>
                                                     <br>
                                                     <div class="card-body" style="height: 350px;">
@@ -456,7 +438,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+                                            <br>
                                             <!-- Dos botones de SWalker y Delsys -->
                                             <div class="mb-3 d-flex centered">
 
@@ -482,9 +464,11 @@
                                 <div class="card shadow mb-4"style="height: 125px;">
                                     <div class="card-body"style="height: 125px;">
                                         <div class="chart-area" style="height: 100px; text-align: center; padding-top: 15px;">
-                                            <button class="btn btn-primary " value="start_position" id="save_data" type="submit" style="margin:5px; background: #fd4e4e; border-color: #fd4e4e; width: 130px; ">Guardar datos</button>
-                                            <button class="btn btn-primary btn-xl" value="start_calibration" id="start_stop" type="submit" style="margin:5px; background: #0968e4; width: 130px;">Nueva Terapia</button>
-                                            <button class="btn btn-primary btn-xl" id="calibrate" type="submit" style="margin:5px; background: #0968e4; width: 120px;">Calibrar</button>
+                                            <div class="mb-3 d-flex centered">
+                                            <button class="btn btn-primary " value="start_position" id="save_data" type="submit" style="margin:5px; background: #fd4e4e; border-color: #fd4e4e; width: 130px; display: none;">Guardar datos</button>
+                                            <button class="btn btn-primary btn-xl" value="start_calibration" id="start_stop" type="submit" style="margin:5px; background: #0968e4; width: 150px; height: 40px;">Empezar</button>
+                                            <button class="btn btn-primary btn-xl" id="calibrate" type="submit" style="margin:5px; background: #0968e4; width: 150px; height: 40px;">Calibrar</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div> 
@@ -570,7 +554,7 @@
                                             <table style="width:100%; text-align: center;" class="table table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col" colspan="2" style=" text-align: center;">Patient</th>
+                                                        <th scope="col" colspan="2" style=" text-align: center;">Paciente</th>
                                                         <th scope="col">Longitud de la pierna(cm)</th>
                                                         <th scope="col">Peso (kg)</th>
                                                     </tr>
@@ -604,13 +588,14 @@
                         </div>
                     </div>
                     <!-- TRES BOTONES SUPER PUESTOS PARA DIFERENTES COSAS? AL EJECUTAR UNO FUNCIONAN TODOS? -->
-
+                    <!--
                     <div class="mb-3 d-flex centered" >
                         
 						<button class="btn btn-primary " value="start_position" id="save_data" type="submit" style="margin:5px; background: #fd4e4e; border-color: #fd4e4e; display:none">Guardar datos</button>
                         <button class="btn btn-primary btn-xl" value="start_calibration" id="start_stop" type="submit" style="margin:5px; background: #0968e4">Nueva Terapia</button>
                         <button class="btn btn-primary btn-xl" id="calibrate" type="submit" style="margin:5px; background: #0968e4; display:none">Calibrar</button>
                     </div>
+                    -->
                 </div>
             </div>
             <!-- End: Charts -->
